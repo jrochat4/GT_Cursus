@@ -3,7 +3,12 @@
 ## Domaine 1 Objectifs de formation
 
 ### 1.1
+
+#### Critère
+
 Le programme d'études a des objectifs clairs, explicitant ses spécificités, et conformes aux exigences nationales et internationales.
+
+#### Check-list
 
 * [ ] Programme d'études a des objectifs clairs
 * [ ] Programme d'études a des objectifs explicitant ses spécificités
