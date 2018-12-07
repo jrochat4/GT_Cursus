@@ -5,10 +5,10 @@
 ### 1.1
 Le programme d'études a des objectifs clairs, explicitant ses spécificités, et conformes aux exigences nationales et internationales.
 
-[ ] Programme d'études a des objectifs clairs
-[ ] Programme d'études a des objectifs explicitant ses spécificités
-[ ] Programme d'études a des objectifs conformes aux exigences nationales
-[ ] Programme d'études a des objectifs conformes aux exigences internationales
+* [ ] Programme d'études a des objectifs clairs
+* [ ] Programme d'études a des objectifs explicitant ses spécificités
+* [ ] Programme d'études a des objectifs conformes aux exigences nationales
+* [ ] Programme d'études a des objectifs conformes aux exigences internationales
 
 
 ## 1.2
