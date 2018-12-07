@@ -1,103 +1,136 @@
-# Standards de qualité s'appliquant à l'accréditation de programmes
+---
+title: Standards en lien avec l'accréditation des programmes
+output:
+  html_document: default
+  pdf_document: default
+  word_document: default
+---
 
-## Domaine 1 Objectifs de formation
+# Critères et questions en suspens
 
-### 1.1
+### Domaine 1 : Objectifs de formation
+
+#### Critère 1.1
+
+_Le programme d'études a des objectifs clairs, explicitant ses spécificités, et conformes aux exigences nationales et internationales._
+
+##### Questions en suspens
+
+* Quelles sont les exigences nationales ?
+* Quelles sont les exigences internationales ?
+
+#### Critère 1.2
+
+_Le programme d'études vise des objectifs de formation qui correspondent à la mission et à la planification stratégique de la haute école ou de l'autre institution du domaine des hautes écoles._
+
+##### Questions en suspens
+
+* Quelle est la mission de l'UNIL ?
+* Quelle est la planification stratégique de l'UNIL ?
+
+## Domaine 2 : Conception
+
+### Critère 2.1
+
+_Le contenu du programme d'études et les méthodes utilisées permettent aux étudiants d'atteindre les objectifs d'apprentissage._
+
+##### Questions en suspens
+
+### 2.2
 
 #### Critère
 
-Le programme d'études a des objectifs clairs, explicitant ses spécificités, et conformes aux exigences nationales et internationales.
+_Le contenu du programme d'études intègre les connaissances scientifiques et l'évolution des champs professionnels._
 
-#### Check-list
+##### Questions en suspens
 
-* [ ] Programme d'études a des objectifs clairs
-* [ ] Programme d'études a des objectifs explicitant ses spécificités
-* [ ] Programme d'études a des objectifs conformes aux exigences nationales
-* [ ] Programme d'études a des objectifs conformes aux exigences internationales
+* Quelle est la définition d'évolution des champs professionnels ?
 
+### Critère 2.3
 
-## 1.2
-Le programme d'études vise des objectifs de formation qui correspondent à la mission et à la planification stratégique de la haute école ou de l'autre institution du domaine des hautes écoles.
+_Les méthodes d'évaluation des prestations des étudiants sont adaptées aux objectifs d'apprentissage. Les conditions d'admission et d'obtention des diplômes sont réglementées et publiées._
 
-[] Programme d'études vise des objectifs de formation qui correspondent à la mission de l'UNIL
-[] Programme d'études vise des objectifs de formation qui correspondent à la planification stratégique de l'UNIL
+##### Questions en suspens
 
+## Domaine 3 : Mise en oeuvre
 
-# Domaine 2 Conception
+#### Critère 3.1
 
-2.1
-Le contenu du programme d'études et les méthodes utilisées permettent aux étudiants d'atteindre les objectifs d'apprentissage.
+_Le programme d'études est régulièrement dispensé._
 
-[] Contenu du programme d'études permet aux étudiants d'atteindre les objectifs d'apprentissage
-[] Méthodes utilisées permettent aux étudiants d'atteindre les objectifs d'apprentissage
+##### Questions en suspens
 
+* Quelle est la définition du terme "régulièrement" ?
 
-2.2
-Le contenu du programme d'études intègre les connaissances scientifiques et l'évolution des champs professionnels.
+### Criètre 3.2
 
-[] Contenu du programme d'études intègre les connaissances scientifiques des champs professionnels
-[] Contenu du programme d'études intègre l'évolution des champs professionnels
+_Les ressources disponibles (encadrement et ressources matérielles) permettent aux étudiants d'atteindre les objectifs d'apprentissage._
 
+### Critère 3.3
 
-2.3
-Les méthodes d'évaluation des prestations des étudiants sont adaptées aux objectifs d'apprentissage. Les conditions d'admission et d'obtention des diplômes sont réglementées et publiées.
+_Le corps enseignant a les compétences correspondant aux spécificités du programme d'études et de ses objectifs._
 
-[] Méthodes d'évaluation des prestations des étudiants sont adaptées aux objectifs d'apprentissage
-[] Les conditions d'admission des diplômes sont réglementées
-[] Les conditions d'admission des diplômes sont publiées
-[] Les conditions d'obtention des diplômes sont réglementées
-[] Les conditions d'obtention des diplômes sont publiées
+## Domaine 4 : Assurance de la qualité
 
-Domaine 3 Mise en oeuvre
+### Critère 4.1
 
-3.1
-Le programme d'études est régulièrement dispensé.
+_Le pilotage du programme d'études prend en compte l'avis des principaux groupes intéressés et permet d'apporter les évolutions nécessaires._
 
-[] Programme d'étude régulièrement dispensé
+##### Questions en suspens
 
-3.2
-Les ressources disponibles (encadrement et ressources matérielles) permettent aux étudiants d'atteindre les objectifs d'apprentissage.
+* Quelle est la définition des principaux groupes intéressés ?
 
-[] Les ressources d'encadrement permettent aux étudiants d'atteindre les objectifs d'apprentissage
-[] Les ressources matérielles permettent aux étudiants d'atteindre les objectifs d'apprentissage
+### Critère 4.2
 
+_Le programme d'études fait partie intégrante du système d'assurance de la qualité de la haute école ou de l'autre institution du domaine des hautes écoles._
 
-3.3
-Le corps enseignant a les compétences correspondant aux spécificités du programme d'études et de ses objectifs.
+##### Questions en suspens
 
-[] Le corps enseignant a les compétences correspondant aux spécificités du programme d'études
-[] Le corps enseignant a les compétences correspondant aux objectifs du programme d'études
+* Qu'entend-on par un programme d'études faisant partie intégrante du système d'assurance de la qualité de l'UNIL ?
 
+# Check-list
 
-Domaine 4 Assurance de la qualité
+### Objectifs de formation
 
-4.1
+1. [ ] Le programme d'études a des objectifs clairs
+1. [ ] Le programme d'études a des objectifs explicitant ses spécificités
+1. [ ] Le programme d'études a des objectifs conformes aux exigences nationales
+1. [ ] Le programme d'études a des objectifs conformes aux exigences internationales
 
-Le pilotage du programme d'études prend en compte l'avis des principaux groupes intéressés et permet d'apporter les évolutions nécessaires.
+1. [ ] Le programme d'études vise des objectifs de formation qui correspondent à la mission de l'UNIL
+1. [ ] Le programme d'études vise des objectifs de formation qui correspondent à la planification stratégique de l'UNIL
 
-[] Pilotage du programme prend en compte l'avis des principaux groupes intéressés
-	[] CP
-	[] Relève
-	[] CI
-	[] PAT
-	[] Etudiants
+### Conception
 
+1. [ ] Contenu du programme d'études permet aux étudiants d'atteindre les objectifs d'apprentissage
+1. [ ] Méthodes utilisées permettent aux étudiants d'atteindre les objectifs d'apprentissage
 
-[] Pilotage du programme permet d'apporter les évolutions nécessaires
+1. [ ] Contenu du programme d'études intègre les connaissances scientifiques des champs professionnels
+1. [ ] Contenu du programme d'études intègre l'évolution des champs professionnels
 
-4.2
+1. [ ] Méthodes d'évaluation des prestations des étudiants sont adaptées aux objectifs d'apprentissage
+1. [ ] Les conditions d'admission des diplômes sont réglementées
+1. [ ] Les conditions d'admission des diplômes sont publiées
+1. [ ] Les conditions d'obtention des diplômes sont réglementées
+1. [ ] Les conditions d'obtention des diplômes sont publiées
+1. [ ] Le programme d'études est régulièrement dispensé
 
-Le programme d'études fait partie intégrante du système d'assurance de la qualité de la haute école ou de l'autre institution du domaine des hautes écoles.
+### Mise en oeuvre
 
-[] Programme d'études fait partie intégrante du système d'assurance de la qualité de l'UNIL
+1. [ ] Les ressources d'encadrement permettent aux étudiants d'atteindre les objectifs d'apprentissage
+1. [ ] Les ressources matérielles permettent aux étudiants d'atteindre les objectifs d'apprentissage
 
-## Annexes
+1. [ ] Le corps enseignant a les compétences correspondant aux spécificités du programme d'études
+1. [ ] Le corps enseignant a les compétences correspondant aux objectifs du programme d'études
 
-Question en suspens:
+### Assurance de la qualité
 
-- Quelles sont les exigences nationales ?
-- Quelles sont les exigences internationales ?
-- Quelle est la définition d'évolution des champs professionnels ?
-- Quelle est la définition d'un programme d'études régulièrement dispensé ?
-- Quelle est la définition des principaux groupes intéressés ?
-- Comment savoir si un programme d'études fait partie intégrante du système d'assurance de la qualité de l'UNIL ?
+1. [ ] Pilotage du programme prend en compte l'avis des principaux groupes intéressés
+    1. [ ] CP
+    1. [ ] Relève
+    1. [ ] CI
+    1. [ ] PAT
+    1. [ ] Etudiants
+
+1. [ ] Pilotage du programme permet d'apporter les évolutions nécessaires
+1. [ ] Programme d'études fait partie intégrante du système d'assurance de la qualité de l'UNIL
