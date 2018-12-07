@@ -1,14 +1,14 @@
 ---
 title: Standards en lien avec l'accréditation des programmes
 output:
-  html_document: default
-  pdf_document: default
   word_document: default
+  pdf_document: default
+  html_document: default
 ---
 
 # Critères et questions en suspens
 
-### Domaine 1 : Objectifs de formation
+## Domaine 1 : Objectifs de formation
 
 #### Critère 1.1
 
@@ -34,8 +34,6 @@ _Le programme d'études vise des objectifs de formation qui correspondent à la 
 
 _Le contenu du programme d'études et les méthodes utilisées permettent aux étudiants d'atteindre les objectifs d'apprentissage._
 
-##### Questions en suspens
-
 ### 2.2
 
 #### Critère
@@ -44,13 +42,11 @@ _Le contenu du programme d'études intègre les connaissances scientifiques et l
 
 ##### Questions en suspens
 
-* Quelle est la définition d'évolution des champs professionnels ?
+* Quelle est la définition du concept évolution des champs professionnels"" ?
 
 ### Critère 2.3
 
 _Les méthodes d'évaluation des prestations des étudiants sont adaptées aux objectifs d'apprentissage. Les conditions d'admission et d'obtention des diplômes sont réglementées et publiées._
-
-##### Questions en suspens
 
 ## Domaine 3 : Mise en oeuvre
 
