@@ -1,9 +1,9 @@
 ---
 title: Standards en lien avec l'accréditation des programmes
 output:
-  word_document: default
-  pdf_document: default
   html_document: default
+  pdf_document: default
+  word_document: default
 ---
 
 # Critères et questions en suspens
@@ -84,7 +84,7 @@ _Le programme d'études fait partie intégrante du système d'assurance de la qu
 
 * Qu'entend-on par un programme d'études faisant partie intégrante du système d'assurance de la qualité de l'UNIL ?
 
-# Check-list
+# Canevas déduit
 
 ### Objectifs de formation
 
@@ -122,11 +122,11 @@ _Le programme d'études fait partie intégrante du système d'assurance de la qu
 ### Assurance de la qualité
 
 1. [ ] Pilotage du programme prend en compte l'avis des principaux groupes intéressés
-    1. [ ] CP
-    1. [ ] Relève
-    1. [ ] CI
-    1. [ ] PAT
-    1. [ ] Etudiants
+    1.  [ ] CP
+    1.  [ ] Relève
+    1.  [ ] CI
+    1.  [ ] PAT
+    1.  [ ] Etudiants
 
 1. [ ] Pilotage du programme permet d'apporter les évolutions nécessaires
 1. [ ] Programme d'études fait partie intégrante du système d'assurance de la qualité de l'UNIL
