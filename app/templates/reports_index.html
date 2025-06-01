@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Reports</title>
+    <style>
+        body { font-family: sans-serif; margin: 20px; background-color: #f8f9fa; }
+        .container { max-width: 900px; margin: auto; background-color: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        h1 { color: #333; border-bottom: 1px solid #eee; padding-bottom: 10px; }
+        ul { list-style-type: none; padding: 0; }
+        li { background-color: #f9f9f9; border: 1px solid #ddd; padding: 10px; margin-bottom: 8px; border-radius: 4px; }
+        li a { text-decoration: none; color: #007bff; font-weight: bold; }
+        li a:hover { text-decoration: underline; }
+        .no-reports { color: #777; }
+        .nav-links { margin-bottom: 20px; }
+        .nav-links a { margin-right: 15px; text-decoration: none; color: #007bff; }
+        .nav-links a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="nav-links">
+            <a href="{{ url_for('main.list_questionnaires') }}">Back to Questionnaires</a>
+        </div>
+        <h1>Available Reports</h1>
+        <p>Select a questionnaire to view its (simulated) report.</p>
+
+        {% if questionnaires %}
+            <ul>
+            {% for q in questionnaires %}
+                <li>
+                    <a href="{{ url_for('main.view_questionnaire_report', questionnaire_id=q.id) }}">{{ q.title }}</a>
+                    {% if not q.questions %}
+                     (No questions in this questionnaire)
+                    {% endif %}
+                </li>
+            {% endfor %}
+            </ul>
+        {% else %}
+            <p class="no-reports">No questionnaires available to generate reports for.</p>
+        {% endif %}
+    </div>
+</body>
+</html>

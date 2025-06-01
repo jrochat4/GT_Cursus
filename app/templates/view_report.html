@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Report for {{ questionnaire.title }}</title>
+    <style>
+        body { font-family: sans-serif; margin: 20px; background-color: #f8f9fa; }
+        .container { max-width: 900px; margin: auto; background-color: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        h1, h2 { color: #333; border-bottom: 1px solid #eee; padding-bottom: 10px; }
+        .question-report { margin-bottom: 25px; padding: 15px; border: 1px solid #e0e0e0; border-radius: 5px; background-color: #fdfdfd;}
+        .question-text { font-weight: bold; font-size: 1.1em; margin-bottom: 10px; color: #444; }
+        .choices-summary ul { list-style-type: none; padding-left: 0; }
+        .choices-summary li { margin-bottom: 5px; }
+        .choice-bar-container { background-color: #e9ecef; border-radius: 4px; margin-top: 3px; height: 20px; position: relative; overflow: hidden;}
+        .choice-bar { background-color: #007bff; height: 100%; display: block; text-align: right; padding-right: 5px; color: white; font-size: 0.8em; line-height: 20px; white-space: nowrap; box-sizing: border-box;}
+        .open-ended-answers ul { list-style-type: disc; padding-left: 20px; }
+        .open-ended-answers li { background-color: #f9f9f9; padding: 8px; border-radius: 3px; margin-bottom: 5px; }
+        .nav-links { margin-bottom: 20px; }
+        .nav-links a { margin-right: 15px; text-decoration: none; color: #007bff; }
+        .nav-links a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="nav-links">
+            <a href="{{ url_for('main.reports_index') }}">Back to Reports List</a> |
+            <a href="{{ url_for('main.list_questionnaires') }}">Back to Questionnaires</a>
+        </div>
+
+        <h1>Report for: {{ questionnaire.title }}</h1>
+        <p><em>This report shows simulated data as actual answer collection and storage is not yet implemented.</em></p>
+
+        {% if not questionnaire.questions %}
+            <p>This questionnaire has no questions defined.</p>
+        {% else %}
+            {% for question in questionnaire.questions %}
+            <div class="question-report">
+                <p class="question-text">{{ loop.index }}. {{ question.text }} ({{ question.question_type }})</p>
+
+                {% if question.question_type == 'LIKERT_SCALE' or question.question_type == 'MULTIPLE_CHOICE' %}
+                    {% set q_answers = aggregated_answers.get(question.id, {}) %}
+                    {% set total_responses = q_answers.values()|sum %}
+                    <div class="choices-summary">
+                        <ul>
+                        {% for choice, count in q_answers.items() %}
+                            {% set percentage = (count / total_responses * 100) if total_responses > 0 else 0 %}
+                            <li>
+                                {{ choice }}: {{ count }} response(s) ({{ "%.1f"|format(percentage) }}%)
+                                <div class="choice-bar-container">
+                                    <span class="choice-bar" style="width: {{ percentage }}%;"></span>
+                                </div>
+                            </li>
+                        {% endfor %}
+                        </ul>
+                        {% if total_responses == 0 %} <p>No responses for this question yet.</p> {% endif %}
+                    </div>
+                {% elif question.question_type == 'TEXT' %}
+                    {% set text_answers = aggregated_answers.get(question.id, []) %}
+                    <div class="open-ended-answers">
+                        {% if text_answers %}
+                            <p><strong>Responses:</strong></p>
+                            <ul>
+                            {% for answer in text_answers %}
+                                <li>{{ answer }}</li>
+                            {% endfor %}
+                            </ul>
+                        {% else %}
+                            <p>No open-ended responses for this question yet.</p>
+                        {% endif %}
+                    </div>
+                {% else %}
+                    <p><em>Reporting for this question type is not yet implemented.</em></p>
+                {% endif %}
+            </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+</body>
+</html>

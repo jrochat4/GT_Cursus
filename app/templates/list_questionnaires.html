@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Questionnaires</title>
+    <style>
+        body { font-family: sans-serif; margin: 20px; background-color: #f8f9fa; }
+        h1, h2 { color: #333; }
+        a { text-decoration: none; }
+        .container { max-width: 800px; margin: auto; background-color: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .questionnaire-item { border: 1px solid #ddd; padding: 15px; margin-bottom: 10px; border-radius: 5px; background-color: #f9f9f9; display: flex; justify-content: space-between; align-items: center; }
+        .questionnaire-info h2 { margin-top: 0; margin-bottom: 5px; font-size: 1.4em;}
+        .questionnaire-info p { margin-bottom: 0; color: #555;}
+        .actions { margin-bottom: 20px; }
+        .btn { display: inline-block; padding: 8px 12px; color: white; border: none; border-radius: 4px; cursor: pointer; text-align: center; font-size: 0.9em; margin-left: 5px; }
+        .btn-primary { background-color: #007bff; }
+        .btn-primary:hover { background-color: #0056b3; }
+        .btn-secondary { background-color: #6c757d; }
+        .btn-secondary:hover { background-color: #545b62; }
+        .btn-success { background-color: #28a745; }
+        .btn-success:hover { background-color: #218838; }
+        .btn-info { background-color: #17a2b8; }
+        .btn-info:hover { background-color: #117a8b; }
+        ul { list-style-type: none; padding: 0; }
+        .alert-container { margin-bottom: 15px;}
+        .alert { padding: 10px; border-radius:3px; }
+        .alert-success { background-color:#d4edda; color:#155724; border:1px solid #c3e6cb; }
+        .alert-error { background-color:#f8d7da; color:#721c24; border:1px solid #f5c6cb;}
+        .alert-warning { background-color:#fff3cd; color:#856404; border:1px solid #ffeeba; }
+        .questionnaire-actions .btn { min-width: 120px; } /* Ensure buttons have some min width */
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Inside list_questionnaires.html, within .container before <h1> -->
+        <div style="text-align: right; margin-bottom: 15px;">
+            {% if current_user.is_authenticated %}
+                <span>Logged in as: <strong>{{ current_user.username }}</strong></span> |
+                <a href="{{ url_for('main.logout') }}">Logout</a>
+            {% else %}
+                <a href="{{ url_for('main.login') }}">Login</a> |
+                <a href="{{ url_for('main.register') }}">Register</a>
+            {% endif %}
+        </div>
+        <h1>Available Questionnaires</h1>
+
+        <div class="alert-container">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            {% for category, message in messages %}
+              <div class="alert alert-{{ category }}">{{ message }}</div>
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
+        </div>
+
+        <div class="actions">
+            <a href="{{ url_for('main.create_questionnaire') }}" class="btn btn-primary">Create New Questionnaire</a>
+                <a href="{{ url_for('main.reports_index') }}" class="btn btn-info">View Reports</a>
+        </div>
+
+        {% if questionnaires %}
+            <ul>
+            {% for q in questionnaires %}
+                <li class="questionnaire-item">
+                    <div class="questionnaire-info">
+                        <h2>{{ q.title }}</h2>
+                        <p>{{ q.description }}</p>
+                    </div>
+                    <div class="questionnaire-actions">
+                        <a href="{{ url_for('main.fill_questionnaire_form', questionnaire_id=q.id) }}" class="btn btn-success">Fill Out</a>
+                        <a href="{{ url_for('main.manage_questionnaire_questions', questionnaire_id=q.id) }}" class="btn btn-secondary">Manage Questions ({{ q.questions|length }})</a>
+                    </div>
+                </li>
+            {% endfor %}
+            </ul>
+        {% else %}
+            <p>No questionnaires created yet.</p>
+        {% endif %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Manage Questions for {{ questionnaire.title }}</title>
+    <style>
+        body { font-family: sans-serif; margin: 20px; }
+        h1, h2, h3 { color: #333; }
+        a { text-decoration: none; color: #007bff; }
+        a:hover { text-decoration: underline; }
+        .container { max-width: 800px; margin: auto; }
+        .questionnaire-details { background-color: #f9f9f9; padding: 15px; border-radius: 5px; margin-bottom: 20px; }
+        .questions-list { list-style-type: none; padding: 0; }
+        .question-item { border: 1px solid #eee; padding: 10px; margin-bottom: 10px; border-radius: 5px; background-color: #fff; }
+        .question-item strong { font-size: 1.1em; }
+        .question-item span { color: #555; font-size: 0.9em;}
+        .form-section { margin-top: 20px; padding: 20px; border: 1px solid #ccc; border-radius: 5px; background-color: #fdfdfd; }
+        form div { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 5px; font-weight: bold; }
+        input[type="text"], textarea, select { width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 3px; box-sizing: border-box; }
+        textarea { min-height: 80px; }
+        .btn { padding: 10px 15px; color: white; border: none; border-radius: 3px; cursor: pointer; }
+        .btn-primary { background-color: #007bff;}
+        .btn-primary:hover { background-color: #0056b3;}
+        .btn-success { background-color: #28a745; }
+        .btn-success:hover { background-color: #218838; }
+        .btn-secondary { background-color: #6c757d; margin-left:10px;}
+        .btn-secondary:hover { background-color: #545b62;}
+        .error { color: red; margin-bottom: 10px; }
+        .choices-help { font-size: 0.85em; color: #666; margin-top: 5px;}
+        .alert { padding: 10px; margin-bottom:15px; border-radius:3px; text-align:center; }
+        .alert-success { background-color:#d4edda; color:#155724; border:1px solid #c3e6cb; }
+        .alert-error { background-color:#f8d7da; color:#721c24; border:1px solid #f5c6cb;}
+        .alert-warning { background-color:#fff3cd; color:#856404; border:1px solid #ffeeba; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="{{ url_for('main.list_questionnaires') }}">&laquo; Back to Questionnaires List</a>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            {% for category, message in messages %}
+              <div class="alert alert-{{ category }}">{{ message }}</div>
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
+
+        <div class="questionnaire-details">
+            <h1>{{ questionnaire.title }}</h1>
+            <p>{{ questionnaire.description }}</p>
+        </div>
+
+        <h2>Questions</h2>
+        {% if questionnaire.questions %}
+            <ul class="questions-list">
+            {% for q in questionnaire.questions %}
+                <li class="question-item">
+                    <strong>Q{{ loop.index }}: {{ q.text }}</strong> (<span>{{ q.question_type }}</span>)
+                    {% if q.choices %}
+                        <p>Choices: {{ q.choices|join(', ') }}</p>
+                    {% endif %}
+                </li>
+            {% endfor %}
+            </ul>
+        {% else %}
+            <p>No questions added to this questionnaire yet.</p>
+        {% endif %}
+
+        <div class="form-section">
+            <h3>Add New Question</h3>
+            {% if error %}
+                <p class="error">{{ error }}</p>
+            {% endif %}
+            <form method="POST">
+                <div>
+                    <label for="question_text">Question Text:</label>
+                    <textarea id="question_text" name="question_text" required></textarea>
+                </div>
+                <div>
+                    <label for="question_type">Question Type:</label>
+                    <select id="question_type" name="question_type" onchange="toggleChoicesInput(this.value)">
+                        {% for type_val, type_display in question_types %}
+                        <option value="{{ type_val }}">{{ type_display }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div id="choices_div" style="display:none;">
+                    <label for="choices">Choices (comma-separated):</label>
+                    <input type="text" id="choices" name="choices">
+                    <p class="choices-help">Required for Multiple Choice and Likert Scale. E.g., Strongly Disagree, Disagree, Neutral, Agree, Strongly Agree</p>
+                </div>
+                <div>
+                    <button type="submit" class="btn btn-success">Add Question</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function toggleChoicesInput(questionType) {
+            const choicesDiv = document.getElementById('choices_div');
+            if (questionType === 'MULTIPLE_CHOICE' || questionType === 'LIKERT_SCALE') {
+                choicesDiv.style.display = 'block';
+            } else {
+                choicesDiv.style.display = 'none';
+            }
+        }
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const questionTypeSelect = document.getElementById('question_type');
+            if (questionTypeSelect) {
+                 toggleChoicesInput(questionTypeSelect.value);
+            }
+        });
+    </script>
+</body>
+</html>

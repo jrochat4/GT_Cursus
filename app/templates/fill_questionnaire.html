@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fill Out: {{ questionnaire.title }}</title>
+    <style>
+        body { font-family: sans-serif; margin: 20px; background-color: #f4f4f4; color: #333; }
+        .container { max-width: 800px; margin: auto; background-color: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        h1, h2 { color: #333; }
+        .questionnaire-header { margin-bottom: 20px; padding-bottom: 10px; border-bottom: 1px solid #eee; }
+        .question-block { margin-bottom: 25px; }
+        .question-text { font-weight: bold; margin-bottom: 10px; display: block; font-size: 1.1em;}
+        .form-options label { margin-right: 15px; font-weight: normal; }
+        .form-options input[type="radio"], .form-options input[type="checkbox"] { margin-right: 5px; }
+        textarea { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; min-height: 100px; }
+        .btn-submit { background-color: #28a745; color: white; padding: 12px 20px; border: none; border-radius: 4px; cursor: pointer; font-size: 1.1em; }
+        .btn-submit:hover { background-color: #218838; }
+        .alert { padding: 10px; margin-bottom:15px; border-radius:3px; }
+        .alert-warning { background-color:#fff3cd; color:#856404; border:1px solid #ffeeba; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="questionnaire-header">
+            <h1>{{ questionnaire.title }}</h1>
+            <p>{{ questionnaire.description }}</p>
+        </div>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            {% for category, message in messages %}
+              <div class="alert alert-{{ category }}">{{ message }}</div>
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
+
+        <form action="{{ url_for('main.submit_questionnaire', questionnaire_id=questionnaire.id) }}" method="POST">
+            {% for question in questionnaire.questions %}
+            <div class="question-block">
+                <label class="question-text" for="question_{{ question.id }}">{{ loop.index }}. {{ question.text }}</label>
+
+                {% if question.question_type == 'TEXT' %}
+                    <textarea name="question_{{ question.id }}" id="question_{{ question.id }}" rows="4" required></textarea>
+
+                {% elif question.question_type == 'LIKERT_SCALE' or question.question_type == 'MULTIPLE_CHOICE' %}
+                    <div class="form-options">
+                        {% for choice in question.choices %}
+                        <label>
+                            <input type="radio" name="question_{{ question.id }}" value="{{ choice }}" required> {{ choice }}
+                        </label>
+                        {% endfor %}
+                    </div>
+
+                {# Add more question types here as needed, e.g., CHECKBOX for multiple selections #}
+
+                {% else %}
+                    <p><em>Unsupported question type.</em></p>
+                {% endif %}
+            </div>
+            {% endfor %}
+
+            <button type="submit" class="btn-submit">Submit Answers</button>
+        </form>
+    </div>
+</body>
+</html>
